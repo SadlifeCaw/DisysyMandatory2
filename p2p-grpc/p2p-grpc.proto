@@ -1,0 +1,18 @@
+syntax = "proto3";
+package p2p;
+
+option go_package = "https://github.com/SadlifeCaw/DisysyMandatory2.git";
+
+service P2PService {
+  rpc SendMessage (MessageRequest) returns (MessageReply) {}
+}
+
+message MessageRequest {
+  string message = 1;
+}
+
+message MessageReply {
+  string reply = 1;
+}
+
+
