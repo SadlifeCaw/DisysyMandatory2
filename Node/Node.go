@@ -54,7 +54,7 @@ func main(){
 	var input string
 
 	fmt.Scan(&input)
-	time.Sleep(time.Second * 10000)
+	time.Sleep(time.Second * 10)
 
 	for {
 		time.Sleep(time.Millisecond * 1) //Try with 10
@@ -98,7 +98,7 @@ func queueHandler(ctx context.Context) {
 			mu.Lock()
 			allowPort, requestQueue = dequeue(requestQueue)
 			mu.Unlock()
-			if allowPort == "" { //Hvis requestQueue er tom sker der ikke noget
+			if allowPort == "" {
 				continue
 			}
 			allowPort = fmt.Sprintf("localhost%s", allowPort)
@@ -133,6 +133,7 @@ func attemptEnter(ctx context.Context){
 				c.EnterCritical(ctx, &gh.EnterMessage{Message: port})
 				conn.Close()
 			}
+			break
 		}
 	}
 }
