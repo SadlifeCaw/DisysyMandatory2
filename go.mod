@@ -1,4 +1,4 @@
-module github.com/SadlifeCaw/DisysyMandatory2.git
+module github.com/SadlifeCaw/DisysyMandatory2
 
 go 1.17
 
