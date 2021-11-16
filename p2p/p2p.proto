@@ -3,16 +3,41 @@ package p2p;
 
 option go_package = "https://github.com/SadlifeCaw/DisysyMandatory2.git";
 
-service HelloService {
-  rpc SayHello (HelloRequest) returns (HelloReply) {}
+service Node {
+  rpc Request(RequestMessage) returns (RequestReply){};
+  rpc Accept(AcceptMessage) returns (AcceptReply){};
+  rpc LeaveCritical(LeaveMessage) returns (LeaveReply){};
+  rpc EnterCritical(EnterMessage) returns (EmptyReply){};
 }
 
-// The request message containing the user's name.
-message HelloRequest {
-  string name = 1;
-}
-
-// The response message containing the greetings
-message HelloReply {
+message RequestMessage {
   string message = 1;
+  string node = 2;
+}
+
+message RequestReply {
+  string replyMessage = 1;
+}
+
+message AcceptMessage {
+  string message = 1;
+}
+
+message AcceptReply {
+  string replyMessage = 1;
+}
+
+message LeaveMessage {
+  string message = 1;
+}
+
+message LeaveReply {
+  string replyMessage = 1;
+}
+
+message EnterMessage {
+  string message = 1;
+}
+
+message EmptyReply{
 }
