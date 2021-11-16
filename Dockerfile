@@ -8,4 +8,4 @@ RUN go install -v ./...
 
 ENV PORT $port
 
-CMD go run . ..\ $PORT
+CMD go run . $PORT
