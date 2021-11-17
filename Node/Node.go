@@ -124,17 +124,17 @@ func GetLoggerFileName(port string) (filename string) {
 }
 
 //queue implementation, could be abstracted to a struct/it's own file in the p2p folder
-func Enqueue(queue []string, port string) []string {
-	return append(queue, port)
+func Enqueue(queue []string, port string) {
+	requestQueue = append(queue, port)
 }
 
-func Dequeue(queue []string) (string, []string) {
+func Dequeue(queue []string) string {
 	if len(queue) != 0 {
 		poppedElement := queue[0]
-		queue = queue[1:]
-		return poppedElement, queue
+		requestQueue = queue[1:]
+		return poppedElement
 	} else {
-		return "", queue
+		return ""
 	}
 }
 
@@ -146,7 +146,7 @@ func CheckQueue(ctx context.Context) {
 			var NextPortToEnter string
 
 			mu.Lock()
-			NextPortToEnter, requestQueue = Dequeue(requestQueue)
+			NextPortToEnter = Dequeue(requestQueue)
 			mu.Unlock()
 
 			//if no Node in queue, skip iteration
@@ -237,7 +237,7 @@ func leave(ctx context.Context) {
 //when requesting to enter the critical section, enqueue this Node
 func (s *server) Request(ctx context.Context, in *p2p.RequestMessage) (*p2p.RequestReply, error) {
 	mu.Lock()
-	requestQueue = Enqueue(requestQueue, in.Node)
+	Enqueue(requestQueue, in.Node)
 	mu.Unlock()
 
 	return &p2p.RequestReply{}, nil
