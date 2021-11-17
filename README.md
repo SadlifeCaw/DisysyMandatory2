@@ -1,5 +1,9 @@
 # DisysyMandatory2
 
+## panic: open log_node1.txt: Access is denied.
+
+If you get this error, you need to make sure the files aren't protected by your system
+
 ## Running the program
 
 The program is designed to be used with 3 nodes exactly.
