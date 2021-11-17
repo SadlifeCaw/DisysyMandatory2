@@ -2,7 +2,7 @@
 
 ## panic: open log_node1.txt: Access is denied.
 
-If you get this error, you need to make sure the files aren't protected by your system
+If you get this error, you need to make sure the files aren't protected by your system, as Anti Virus programs sometimes likes blocking these kinds of things.
 
 ## Running the program
 
@@ -16,6 +16,8 @@ cd Node/
 
 Then run the go file with an input file.
 Below is an example with using node1.txt as input (use a different .txt file for each node, 1 to 3)
+
+Be advised: It is important to be fast enough, as the program only waits for 10 seconds before it starts running. If all nodes are not present at this time, the program might not run correctly.
 
 ```
 go run . ../node1.txt
