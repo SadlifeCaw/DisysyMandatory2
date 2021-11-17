@@ -28,4 +28,4 @@ A quick overview:
 
 - log_node2.txt logs from Port 2001
 
-- log_node3.txt logs from Port 2003
+- log_node3.txt logs from Port 2002
