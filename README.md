@@ -4,7 +4,13 @@
 
 The program is designed to be used with 3 nodes exactly.
 
-To run it, open 3 terminals and in each of them run the go module with a different input file.
+To run it, open 3 terminals and in each of them do
+
+```
+cd Node/
+```
+
+Then run the go file with an input file.
 Below is an example with using node1.txt as input (use a different .txt file for each node, 1 to 3)
 
 ```
